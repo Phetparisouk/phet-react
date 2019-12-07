@@ -16,6 +16,21 @@ class ProductTypeController {
         return response.status(status).json(body);
     }
 
+    static async create(request, response) {
+        let status = 200;
+        let body = {};
+        try {
+            let product_type = await Product_type.create({
+                lib_product: request.body.lib_product
+            });
+            body = {'product_type': product_type, 'message': 'product_type created'};
+        } catch (error) {
+            status = 500;
+            body = {'message': error.message};
+        }
+        return response.status(status).json(body);
+    }
+
     static async details(request, response) {
         let status = 200;
         let body = [];

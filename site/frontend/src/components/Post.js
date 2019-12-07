@@ -1,31 +1,17 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
+import { Schema, model } from "mongoose";
 
-class Post extends Component{
+const postSchema = new Schema({
 
-    constructor(props) {
-        super(props);
+    title: {
+        type: String,
+        required: true
+    },
+    content: {
+        type: String,
+        required: true
     }
+});
 
-    componentDidMount() {
-        console.log(this.props);
-    }
-
-    render(){
-        return(
-            <tr key={this.props.data.id}>
-                <td> 
-                    <Link to ={`/posts/${this.props.data.id}`}>{this.props.data.id}</Link> 
-                </td>
-                <td>{this.props.data.title}</td>
-                <td>{this.props.data.body.substr(0, 20)}....</td>
-                <td>
-                    <button className="btn btn-danger" onClick={() => this.props.deletePost(this.props.data.id)} >Supprimer</button>
-                </td>
-
-            </tr>
-        )
-    }
-}
+const Post = model('Post', postSchema);
 
 export default Post;

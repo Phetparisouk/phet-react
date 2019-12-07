@@ -23,8 +23,10 @@ class ProductController{
         let body = {};
         try {
             let product = await Product.create({
-                title: request.body.montitle,
-                content: request.body.moncontenu
+                name_product: request.body.name_product,
+                price: request.body.price,
+                desc: request.body.desc,
+                productType: request.body.productType
             });
             body = {'product': product, 'message': 'product created'};
         } catch (error) {

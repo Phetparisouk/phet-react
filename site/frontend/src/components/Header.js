@@ -17,7 +17,7 @@ class Header extends Component {
     render(){
         return (
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Blog</a>
+                    <a class="navbar-brand" href="/">Accueil</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -26,30 +26,23 @@ class Header extends Component {
                         <ul class="navbar-nav mr-auto">
                             
                         <li class="nav-item">
-                            <Link className="nav-link" to={'/'}>Accueil</Link>
+                            <Link className="nav-link" to={'/login'}>Connexion</Link>
                         </li>
 
                         <li class="nav-item">
-                            <Link className="nav-link" to={'/ajouter-un-post'}>Ajouter</Link>
+                            <Link className="nav-link" to={'/inscription'}>Inscription</Link>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Produit
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/products">Voir les produits</a>
+                            <a class="dropdown-item" href="/add-product">Ajouter un produit</a>
                             </div>
                         </li>
-                        
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
                     </div>
                 </nav>
         )

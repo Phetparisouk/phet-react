@@ -22,7 +22,13 @@ class UserController{
         let body = {};
         try {
             let user = await User.create({
-                lib_user_type: request.body.lib_user_type
+                firstName: request.body.firstName,
+                lastName: request.body.lastName,
+                mail: request.body.mail,
+                pwd: request.body.pwd,
+                address: request.body.address,
+                creditCard: request.body.creditCard,
+                userType: request.body.userType
             });
             body = {'user': user, 'message': 'user created'};
         } catch (error) {
@@ -51,13 +57,6 @@ class UserController{
         let body = [];
         try {
             let id = request.params.id;
-            /*  let user = await User.findByIdAndUpdate(id, {
-                  $set: {
-                      title: request.body.montitle,
-                      content: request.body.moncontenu
-                  }
-              });*/
-//          delete req.body.password;
             let user = await User.update(id, request.body);
             body = {'user': user, 'message': 'user updated'};
         } catch (error) {
@@ -83,6 +82,25 @@ class UserController{
         }
         return response.status(status).json(body);
     }
+
+//      login de connexion
+    static async connexion(request, response){
+        let status=200; 
+        let body={};
+        try{
+            let user = await User.findOne({firstName: request.body.firstName});
+            let pwd= request.body.pwd; 
+            if( pwd===user.pwd){
+                body={user, 'message':'you are connected'};
+            }
+        }
+        catch(error){
+            status=500;
+            body={'message': error.message}
+        }
+        return response.status(status).json(body);
+    }
+
 }
 
 export default UserController;

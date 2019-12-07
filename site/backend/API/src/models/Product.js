@@ -11,12 +11,13 @@ const productSchema = new Schema({
         required: true
     },
     desc: {                     //description
-        type: Number,
+        type: String,
         required: true
     },
     productType:{
         type: Schema.Types.ObjectId,
-        ref: 'Product_type'
+        ref: 'Product_type',
+        required: true
     }
 
 });

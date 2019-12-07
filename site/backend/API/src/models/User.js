@@ -18,22 +18,7 @@ const userSchema = new Schema({
         type:String,
         required : true,
     },
-    address:{/*
-        num_and_road:{
-            type:String,
-            required : true,
-        },
-        complement_addr:{
-            type:String
-        },
-        zip_code:{
-            type:String,
-            required : true,
-        },
-        country:{
-            type:String,
-            required : true,
-        }*/
+    address:{
         type:String,
         required : true,
 
@@ -44,7 +29,8 @@ const userSchema = new Schema({
     },
     userType:{
         type: Schema.Types.ObjectId,
-        ref: 'User_type'
+        ref: 'User_type',
+        required: true
     }
 
 });

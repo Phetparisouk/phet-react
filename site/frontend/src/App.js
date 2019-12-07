@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Home from './pages/Home';
-//import DetailsPost from './pages/DetailsPost';
 import Header from './components/Header';
 import Footer from './components/Footer';
-//import AddPost from './pages/AddPost';
+import Login from './pages/Login';
+import Inscription from './pages/Inscription';
+import Product from './components/product';
+import AddProduct from './pages/products/addProduct';
+import User from './pages/users/user';
 
-//import logo from './logo.svg';
-//import './App.css';
 
 
 class App extends Component{
@@ -32,8 +33,12 @@ class App extends Component{
       <BrowserRouter>
 
           <Header></Header>
-          
           <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/inscription" exact component={Inscription} />
+          <Route path="/products" exact component={Product} />
+          <Route path="/add-product" exact component={AddProduct} />
+          <Route path="/users" exact component={User} />
           <Footer></Footer>
       </BrowserRouter>
     )
